@@ -1,0 +1,12 @@
+schema_version = "1.0.0"
+
+id = "rokoko_retargeting"
+version = "2.0.0"
+name = "Rokoko Retargeting"
+tagline = "Retarget actions between armatures"
+maintainer = "Rokoko Electronics ApS"
+type = "add-on"
+
+blender_version_min = "5.0.0"
+license = ["SPDX:LGPL-3.0-or-later"]
+tags = ["Animation"]
