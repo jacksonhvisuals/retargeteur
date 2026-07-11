@@ -6,6 +6,20 @@ armature action onto another armature.
 This extraction intentionally does not include Rokoko Studio live streaming,
 recording, browser sign-in, telemetry, update checks, or the Studio Command API.
 
+## Attribution and License
+
+This project is a modified extraction of the retargeting functionality from the
+[Rokoko Studio Live Blender plugin](https://github.com/Rokoko/rokoko-studio-live-blender),
+originally developed and distributed by Rokoko Electronics ApS. The extraction
+and subsequent modifications are maintained by Jackson Hayes. The omitted
+streaming, recording, sign-in, telemetry, update, and Studio Command API
+features are intentional.
+
+This project is licensed under the GNU Lesser General Public License, version 3
+or any later version. See [LICENSE.md](LICENSE.md) for the complete license text.
+The Rokoko name and trademarks remain the property of their respective owner;
+this project is not represented as an official Rokoko product.
+
 ## Features
 
 - Select a source armature with an existing action.

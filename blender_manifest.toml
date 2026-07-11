@@ -4,7 +4,7 @@ id = "rokoko_retargeting"
 version = "2.0.0"
 name = "Rokoko Retargeting"
 tagline = "Retarget actions between armatures"
-maintainer = "Rokoko Electronics ApS"
+maintainer = "Jackson Hayes"
 type = "add-on"
 
 blender_version_min = "5.0.0"
