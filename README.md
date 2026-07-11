@@ -1,6 +1,6 @@
-# Rokoko Retargeting
+# Retargeteur
 
-Rokoko Retargeting is a Blender 5.0+ Extension for retargeting an existing
+Retargeteur is a Blender 5.0+ Extension for retargeting an existing
 armature action onto another armature.
 
 This extraction intentionally does not include Rokoko Studio live streaming,
@@ -39,8 +39,8 @@ in `blender_manifest.toml`.
 ## Usage
 
 1. Open Blender 5.0 or newer.
-2. Enable the Rokoko Retargeting extension.
-3. Open the 3D View sidebar and select the Rokoko tab.
+2. Enable the Retargeteur extension.
+3. Open the 3D View sidebar and select the Retargeteur tab.
 4. Choose a source armature that has an action.
 5. Choose a different target armature.
 6. Click Build Bone List.

@@ -2,7 +2,7 @@ schema_version = "1.0.0"
 
 id = "rokoko_retargeting"
 version = "2.0.0"
-name = "Rokoko Retargeting"
+name = "Retargeteur"
 tagline = "Retarget actions between armatures"
 maintainer = "Jackson Hayes"
 type = "add-on"

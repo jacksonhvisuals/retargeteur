@@ -5,7 +5,7 @@ Usage:
 1. Open Blender.
 2. Select a character armature, preferably making it the active object.
 3. Paste this script into Blender's Text Editor and click Run Script.
-4. Open /private/tmp/rokoko_armature_bone_hierarchy.log.
+4. Open /private/tmp/retargeteur_armature_bone_hierarchy.log.
 
 The script does not modify the scene.
 """
@@ -14,7 +14,7 @@ import bpy
 
 
 INDENT = "  "
-LOG_PATH = "/private/tmp/rokoko_armature_bone_hierarchy.log"
+LOG_PATH = "/private/tmp/retargeteur_armature_bone_hierarchy.log"
 
 
 def get_selected_armature():

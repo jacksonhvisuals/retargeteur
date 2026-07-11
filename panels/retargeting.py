@@ -10,8 +10,8 @@ from bpy.props import StringProperty, BoolProperty
 # Retargeting panel
 class RetargetingPanel(bpy.types.Panel):
     bl_idname = 'VIEW3D_PT_rokoko_retargeting'
-    bl_label = 'Rokoko Retargeting'
-    bl_category = 'Rokoko'
+    bl_label = 'Retargeteur'
+    bl_category = 'Retargeteur'
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
 

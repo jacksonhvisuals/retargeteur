@@ -18,23 +18,23 @@ classes = (
 
 
 def register():
-    print("\n### Loading Rokoko Retargeting...")
+    print("\n### Loading Retargeteur...")
     for cls in classes:
         bpy.utils.register_class(cls)
     properties.register()
     core.detection_manager.load_detection_lists()
-    print("### Loaded Rokoko Retargeting successfully!\n")
+    print("### Loaded Retargeteur successfully!\n")
 
 
 def unregister():
-    print("### Unloading Rokoko Retargeting...")
+    print("### Unloading Retargeteur...")
     properties.unregister()
     for cls in reversed(classes):
         try:
             bpy.utils.unregister_class(cls)
         except RuntimeError:
             pass
-    print("### Unloaded Rokoko Retargeting successfully!\n")
+    print("### Unloaded Retargeteur successfully!\n")
 
 
 if __name__ == '__main__':
