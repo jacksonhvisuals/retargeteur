@@ -1,0 +1,66 @@
+name: Package extension
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  BLENDER_VERSION: "5.0.0"
+
+jobs:
+  package:
+    name: Build and validate extension
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Cache Blender download
+        uses: actions/cache@v4
+        with:
+          path: blender-${{ env.BLENDER_VERSION }}-linux-x64.tar.xz
+          key: blender-${{ runner.os }}-${{ env.BLENDER_VERSION }}
+
+      - name: Download Blender
+        run: |
+          if [ ! -f "blender-${BLENDER_VERSION}-linux-x64.tar.xz" ]; then
+            curl --fail --location --retry 3 \
+              --output "blender-${BLENDER_VERSION}-linux-x64.tar.xz" \
+              "https://download.blender.org/release/Blender5.0/blender-${BLENDER_VERSION}-linux-x64.tar.xz"
+          fi
+          tar -xJf "blender-${BLENDER_VERSION}-linux-x64.tar.xz"
+          echo "$PWD/blender-${BLENDER_VERSION}-linux-x64" >> "$GITHUB_PATH"
+
+      - name: Validate manifest
+        run: blender --background --command extension validate .
+
+      - name: Build extension package
+        run: |
+          mkdir -p dist
+          blender --background --command extension build \
+            --source-dir . \
+            --output-dir dist \
+            --verbose
+
+      - name: Validate extension package
+        id: package
+        run: |
+          package_path="$(find dist -maxdepth 1 -type f -name '*.zip' -print -quit)"
+          if [ -z "$package_path" ]; then
+            echo "No extension package was produced" >&2
+            exit 1
+          fi
+          blender --background --command extension validate "$package_path"
+          echo "path=$package_path" >> "$GITHUB_OUTPUT"
+
+      - name: Upload extension package
+        uses: actions/upload-artifact@v4
+        with:
+          name: retargeteur-extension-${{ github.sha }}
+          path: ${{ steps.package.outputs.path }}
+          if-no-files-found: error
