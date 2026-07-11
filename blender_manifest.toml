@@ -1,7 +1,7 @@
 schema_version = "1.0.0"
 
 id = "retargeteur"
-version = "2.0.0"
+version = "1.0.0"
 name = "Retargeteur"
 tagline = "Retarget actions between armatures"
 maintainer = "Jackson Hayes"
