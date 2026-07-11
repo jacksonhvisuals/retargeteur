@@ -1,67 +1,35 @@
 # Retargeteur
 
-Retargeteur is a Blender 5.0+ Extension for retargeting an existing
-armature action onto another armature.
+Retargeteur is a Blender extension for retargeting an existing armature action
+onto another armature. It requires Blender 4.5.0 or newer.
 
-This extraction intentionally does not include Rokoko Studio live streaming,
-recording, browser sign-in, telemetry, update checks, or the Studio Command API.
-
-## Attribution and License
-
-This project is a modified extraction of the retargeting functionality from the
-[Rokoko Studio Live Blender plugin](https://github.com/Rokoko/rokoko-studio-live-blender),
-originally developed and distributed by Rokoko Electronics ApS. The extraction
-and subsequent modifications are maintained by Jackson Hayes. The omitted
-streaming, recording, sign-in, telemetry, update, and Studio Command API
-features are intentional.
-
-This project is licensed under the GNU Lesser General Public License, version 3
-or any later version. See [LICENSE.md](LICENSE.md) for the complete license text.
-The Rokoko name and trademarks remain the property of their respective owner;
-this project is not represented as an official Rokoko product.
-
-## Features
-
-- Select a source armature with an existing action.
-- Select a target armature to receive the retargeted action.
-- Build an editable source-to-target bone mapping list.
-- Auto-detect common bone names, including Rokoko action exports.
-- Add manual mapping rows for custom rigs.
-- Retarget with rest-pose or current-pose alignment.
-- Optionally auto-scale the source armature during retargeting.
-- Save, import, export, and clear custom bone naming schemes.
+This is a modified extraction of the retargeting functionality from the
+[Rokoko Studio Live Blender plugin](https://github.com/Rokoko/rokoko-studio-live-blender).
+Live streaming, recording, sign-in, telemetry, update checks, and the Studio
+Command API are not included.
 
 ## Installation
 
-Install this directory as a Blender Extension. The extension metadata is defined
-in `blender_manifest.toml`.
+Install the extension in Blender from this directory. The package metadata is
+defined in `blender_manifest.toml`.
 
 ## Usage
 
-1. Open Blender 5.0 or newer.
-2. Enable the Retargeteur extension.
-3. Open the 3D View sidebar and select the Retargeteur tab.
-4. Choose a source armature that has an action.
-5. Choose a different target armature.
-6. Click Build Bone List.
-7. Review and edit the bone mapping list.
-8. Choose Auto Scale and Rest/Current pose options as needed.
-9. Click Retarget Animation.
+1. Open the 3D View sidebar and select the Retargeteur tab.
+2. Choose a source armature with an action and a different target armature.
+3. Click **Build Bone List**, then review or edit the bone mappings.
+4. Choose the pose and auto-scaling options if needed.
+5. Click **Retarget Animation**.
 
-The extension creates a new action on the target armature and removes temporary
-helper objects and constraints after baking.
+The retargeted action is assigned to the target armature. Temporary helper
+objects and constraints are removed after baking.
 
-## Custom Bone Naming Schemes
+Custom bone naming schemes can be saved, imported, exported, and cleared from
+the panel. They are stored in Blender's extension/user data location rather
+than in the installed extension directory.
 
-Custom bone naming schemes are stored in Blender's extension/user data location,
-not in the installed extension directory. Use the panel's Save, Import, Export,
-and Clear controls to manage them.
+## License
 
-The JSON format keeps the legacy `rokoko_custom_names`, `version`, `bones`, and
-`shapes` keys for compatibility. This extension only reads and writes `bones`;
-`shapes` is exported as an empty object.
-
-## Development Checks
-
-Run Python compilation and a stale-reference search before packaging the
-extension.
+Licensed under the GNU Lesser General Public License, version 3 or later. See
+[LICENSE.md](LICENSE.md). The Rokoko name and trademarks remain the property of
+their respective owner; this project is not an official Rokoko product.
